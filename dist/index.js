@@ -12,6 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const qs_1 = require("qs");
 function getProxy(request, config) {
     return __awaiter(this, void 0, void 0, function* () {
+        /*
+            Необходимо иметь в request: proxyUrl
+           */
         let { baseURL = "", url = "" } = request;
         const { proxyUrl = "" } = config;
         request.params = (0, qs_1.parse)(request.params);

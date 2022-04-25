@@ -1,6 +1,6 @@
 {
   "name": "rocket-amo-limiter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Queue service for requests in amoCRM",
   "main": "dist/index.js",
   "types": "lib/index.d.ts",

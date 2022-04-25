@@ -1,3 +1,6 @@
-import { AxiosRequestConfig } from 'axios';
-declare function getProxy(request: AxiosRequestConfig): Promise<AxiosRequestConfig<any>>;
+import { AxiosRequestConfig } from "axios";
+interface LimiterConfig {
+    proxyUrl: string;
+}
+declare function getProxy(request: AxiosRequestConfig, config: LimiterConfig): Promise<AxiosRequestConfig<any>>;
 export default getProxy;

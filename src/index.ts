@@ -9,7 +9,7 @@ async function getProxy(request: AxiosRequestConfig, config: LimiterConfig) {
   /*
       Необходимо иметь в request: proxyUrl
      */
-  let { baseURL, url } = request;
+  let { baseURL = "", url = "" } = request;
   const { proxyUrl = "" } = config;
 
   request.params = parse(request.params);

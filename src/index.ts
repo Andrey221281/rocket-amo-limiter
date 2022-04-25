@@ -1,16 +1,21 @@
-import { AxiosRequestConfig } from 'axios'
-import { parse } from 'qs'
+import { AxiosRequestConfig } from "axios";
+import { parse } from "qs";
 
-async function getProxy(request: AxiosRequestConfig) {
-    /*
-      Необходимо иметь в request: baseURL, url
-     */
-    let { baseURL, url } = request
-
-    request.params = parse(request.params)
-    request.baseURL = 'http://localhost:3300/proxy/catch'
-    request.headers = { ...request.headers, amoUrl: baseURL + url }
-
-    return request
+interface LimiterConfig {
+  proxyUrl: string;
 }
-export default getProxy
+
+async function getProxy(request: AxiosRequestConfig, config: LimiterConfig) {
+  /*
+      Необходимо иметь в request: proxyUrl
+     */
+  let { baseURL, url } = request;
+  const { proxyUrl = "" } = config;
+
+  request.params = parse(request.params);
+  request.baseURL = proxyUrl;
+  request.headers = { ...request.headers, amoUrl: baseURL + url };
+
+  return request;
+}
+export default getProxy;

@@ -15,17 +15,10 @@ import axios from 'axios';
 import rocketAmoLimiter from 'rocket-amo-limiter';
 
 const instance = axios.create();
+const config = {
+    proxyUrl: 'http://localhost:3300/proxy/catch'
+}
 instance.interceptors.request.use(request => {
-    return rocketAmoLimiter(request, { proxyUrl: 'http://localhost:3300/proxy/catch' })
+    return rocketAmoLimiter(request, config)
 })
-```
-
-## Configuration Settings
-
-Вы должны настроить proxy url
-
-```javascript
-config({
-    url: string
-});
 ```

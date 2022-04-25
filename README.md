@@ -15,7 +15,7 @@ import axios from 'axios';
 import rocketAmoLimiter from 'rocket-amo-limiter';
 
 const instance = axios.create();
-this.instance.interceptors.request.use(request => {
+instance.interceptors.request.use(request => {
     return rocketAmoLimiter(request, { proxyUrl: 'http://localhost:3300/proxy/catch' })
 })
 ```

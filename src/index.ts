@@ -20,7 +20,7 @@ async function getProxy(
   request.headers = {
     ...request.headers,
     "amo-url": baseURL + url,
-    "amo-method": request.method as Method,
+    "amo-method": request.method as string,
   };
   request.method = "post";
 

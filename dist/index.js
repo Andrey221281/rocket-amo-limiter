@@ -9,15 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const qs_1 = require("qs");
 function getProxy(request, config) {
     return __awaiter(this, void 0, void 0, function* () {
         /*
             Необходимо иметь в request: proxyUrl
            */
-        const { baseURL = "", url = "", params = "" } = request;
+        const { baseURL = "", url = "" } = request;
         const { proxyUrl = "" } = config;
-        request.params = (0, qs_1.parse)(params);
         request.baseURL = proxyUrl;
         request.headers = Object.assign(Object.assign({}, request.headers), { "amo-url": baseURL + url, "amo-method": request.method });
         request.method = "post";

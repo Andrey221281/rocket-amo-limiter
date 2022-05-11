@@ -1,5 +1,4 @@
-import { AxiosRequestConfig, Method } from "axios";
-import { parse } from "qs";
+import { AxiosRequestConfig } from "axios";
 
 interface LimiterConfig {
   proxyUrl: string;
@@ -12,10 +11,9 @@ async function getProxy(
   /*
       Необходимо иметь в request: proxyUrl
      */
-  const { baseURL = "", url = "", params = "" } = request;
+  const { baseURL = "", url = "" } = request;
   const { proxyUrl = "" } = config;
 
-  request.params = parse(params);
   request.baseURL = proxyUrl;
   request.headers = {
     ...request.headers,

@@ -5,11 +5,14 @@ interface LimiterConfig {
   proxyUrl: string;
 }
 
-async function getProxy(request: AxiosRequestConfig, config: LimiterConfig) {
+async function getProxy(
+  request: AxiosRequestConfig,
+  config: LimiterConfig
+): Promise<AxiosRequestConfig<any>> {
   /*
       Необходимо иметь в request: proxyUrl
      */
-  let { baseURL = "", url = "", params = "" } = request;
+  const { baseURL = "", url = "", params = "" } = request;
   const { proxyUrl = "" } = config;
 
   request.params = parse(params);

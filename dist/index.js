@@ -15,11 +15,11 @@ function getProxy(request, config) {
         /*
             Необходимо иметь в request: proxyUrl
            */
-        let { baseURL = "", url = "", method = "get", params = "" } = request;
+        const { baseURL = "", url = "", params = "" } = request;
         const { proxyUrl = "" } = config;
         request.params = (0, qs_1.parse)(params);
         request.baseURL = proxyUrl;
-        request.headers = Object.assign(Object.assign({}, request.headers), { "amo-url": baseURL + url, "amo-method": method });
+        request.headers = Object.assign(Object.assign({}, request.headers), { "amo-url": baseURL + url, "amo-method": request.method });
         request.method = "post";
         return request;
     });

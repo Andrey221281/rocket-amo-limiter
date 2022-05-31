@@ -14,10 +14,10 @@ function getProxy(request, config) {
         /*
             Необходимо иметь в request: proxyUrl
            */
-        const { baseURL = "", url = "" } = request;
+        const { baseURL = "" } = request;
         const { proxyUrl = "" } = config;
         request.baseURL = proxyUrl;
-        request.headers = Object.assign(Object.assign({}, request.headers), { "amo-url": baseURL + url, "amo-method": request.method });
+        request.headers = Object.assign(Object.assign({}, request.headers), { "amo-url": baseURL, "amo-method": request.method });
         request.method = "post";
         return request;
     });

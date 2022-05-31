@@ -11,13 +11,13 @@ async function getProxy(
   /*
       Необходимо иметь в request: proxyUrl
      */
-  const { baseURL = "", url = "" } = request;
+  const { baseURL = "" } = request;
   const { proxyUrl = "" } = config;
 
   request.baseURL = proxyUrl;
   request.headers = {
     ...request.headers,
-    "amo-url": baseURL + url,
+    "amo-url": baseURL,
     "amo-method": request.method as string,
   };
   request.method = "post";
